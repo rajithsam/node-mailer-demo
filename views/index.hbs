@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bulk Mail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="display-4">Bulk Email</h1>
+            <p class="lead">This is a simple nodejs app, to send bulk emails.</p>
+        </div>
+
+        {{#if success}}
+            <div class="alert alert-success" role="alert">
+                Email Sent Successfully!
+            </div>
+        {{else if failed}}
+            <div class="alert alert-danger" role="alert">
+                Some issues in sending emails!
+            </div>
+        {{/if}}
+        
+        <div class="card">
+
+            <div class="card-body">
+
+                <form action='/sendMail' method='post' name='composeForm'>
+                    <div class="form-group">
+                        <label for="recipient_emails">Recipient Emails</label>
+                        <input type="text" class="form-control" name="recipient_emails" aria-describedby="emailHelp" placeholder="Enter recipient emails" required>
+                        <small id="emailHelp" class="form-text text-muted">Add multiple emails with comma (,)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Subject">Subject</label>
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Body</label>
+                        <textarea type="text" rows='10' class="form-control" name="body" placeholder="Enter your message here.." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
